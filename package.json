@@ -2,13 +2,18 @@
   "name": "playwright-test",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "bddgen": "bddgen",
+    "test": "bddgen && playwright test",
+    "test:report": "playwright show-report"
+  },
   "keywords": [],
-  "author": "",
+  "author": "Chicioreanu Ana-Maria",
   "license": "ISC",
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.60.0",
-    "@types/node": "^25.9.1"
+    "@types/node": "^25.9.1",
+    "playwright-bdd": "^8.5.1"
   }
 }
