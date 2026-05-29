@@ -1,21 +1,33 @@
-import { type Page } from '@playwright/test';
+import { type Page, type Locator } from '@playwright/test';
 
 export class LoginPage {
     readonly page: Page;
+    readonly usernameField: Locator;
+    readonly passwordField: Locator;
+    readonly loginButton: Locator;
 
     constructor(page: Page) {
         this.page = page;
+        this.usernameField = page.getByPlaceholder('Username');
+        this.passwordField = page.getByPlaceholder('Password');
+        this.loginButton = page.getByRole('button', { name: ' Login ' });
     }
 
     async validLogin() {
-
-        const username = 'Admin';
-        const password = 'admin123';
-
-        await this.page.getByPlaceholder('Username').fill(username);
-        await this.page.getByPlaceholder('Password').fill(password);
-        await this.page.getByRole('button', { name: ' Login ' }).click();
+        await this.attemptLogin('Admin', 'admin123');
     }
 
+    async attemptLogin(username: string, password: string) {
+        if (username) {
+            await this.usernameField.fill(username);
+        }
+        if (password) {
+            await this.passwordField.fill(password);
+        }
+        await this.loginButton.click();
+    }
 
+    fieldError(field: string): Locator {
+        return this.page.locator('.oxd-input-group', { has: this.page.getByPlaceholder(field) });
+    }
 }
