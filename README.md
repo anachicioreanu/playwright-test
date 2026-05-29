@@ -1,6 +1,6 @@
 # playwright-test
 
-End-to-end tests for the [OrangeHRM demo site](https://opensource-demo.orangehrmlive.com) using [Playwright](https://playwright.dev) and [playwright-bdd](https://github.com/vitalets/playwright-bdd) (Gherkin syntax).
+End-to-end tests using [Playwright](https://playwright.dev) and [playwright-bdd](https://github.com/vitalets/playwright-bdd) (Gherkin syntax).
 
 ## Stack
 
