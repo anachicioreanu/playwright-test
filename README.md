@@ -47,3 +47,11 @@ After a test run, Playwright generates an HTML report with results, traces, scre
 ```bash
 npm run test:report
 ```
+
+## Continuous integration
+
+Tests run automatically on GitHub Actions for every push to `main` and every pull request targeting `main`. The workflow is defined in [.github/workflows/playwright.yml](.github/workflows/playwright.yml) and:
+
+- Installs dependencies and Playwright browsers
+- Runs the full suite (`npm test`) across Chromium, Firefox, and WebKit
+- Uploads the HTML report as an artifact (downloadable from the Actions run page)
